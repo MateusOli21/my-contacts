@@ -15,8 +15,8 @@ describe('ContactForm Component', () => {
     expect(inputPhone).toHaveValue(formatPhone('11999999999'));
   });
 
-  it('should select a option and be visible', async () => {
-    const { getByRole, getByText } = render(<ContactForm />);
+  it('should select a option and check if value is correct', async () => {
+    const { getByRole } = render(<ContactForm />);
 
     const selectCategory = getByRole('combobox', { name: /Categoria:/i });
 
@@ -25,6 +25,6 @@ describe('ContactForm Component', () => {
       within(selectCategory).getByRole('option', { name: /discord/i })
     );
 
-    expect(getByText('discord')).toBeTruthy();
+    expect(selectCategory).toHaveValue('discord');
   });
 });
