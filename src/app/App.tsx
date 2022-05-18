@@ -5,9 +5,9 @@ import { makeServer } from './infra/services/mirage';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 
-if (process.env.NODE_ENV === 'development') {
-  makeServer();
-}
+// if (process.env.NODE_ENV === 'development') {
+makeServer();
+// }
 
 function App() {
   return (
