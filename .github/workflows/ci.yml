@@ -1,4 +1,4 @@
-name: Run cypress tests
+name: CI workflow
 
 on:
   push:
@@ -7,13 +7,25 @@ on:
     branches: [main, develop]
 
 jobs:
-  cypress-run:
+  jest-run-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress run
+      - name: Install dependencies
+        run: npm install
+
+      - name: Jest run tests
+        run: npm run test:ci
+
+  cypress-run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run tests
         uses: cypress-io/github-action@v2
         with:
           # build: npm run dev
