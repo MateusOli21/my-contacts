@@ -15,7 +15,7 @@
     "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["@testing-library/cypress", "@testing-library/jest-dom", "cypress"],
+    "types": ["node", "@testing-library/cypress", "@testing-library/jest-dom", "cypress"],
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["app/*"],
