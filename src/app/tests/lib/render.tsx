@@ -9,8 +9,5 @@ const AllAppProviders = ({ children }: AllAppProvidersProps) => {
   return <Router>{children}</Router>;
 };
 
-const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
+export const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
   render(ui, { wrapper: AllAppProviders, ...options });
-
-export * from '@testing-library/react';
-export { customRender as render };

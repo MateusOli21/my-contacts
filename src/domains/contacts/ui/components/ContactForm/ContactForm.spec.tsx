@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
-import { render, within } from '@app/tests/lib/render';
+import { render, within } from '@app/tests/lib';
 import { formatPhone } from '@domains/contacts/utils';
 import { ContactForm } from '.';
 
