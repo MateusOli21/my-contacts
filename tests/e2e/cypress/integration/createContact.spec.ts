@@ -1,6 +1,6 @@
 describe('New contact', () => {
   it('should create a new contact', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
 
     cy.findByRole('button', {
       name: /novo contato/i,

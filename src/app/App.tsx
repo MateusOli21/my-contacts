@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 
-import { AppRoutes } from '@app/infra/routes';
-import { makeServer } from './infra/services/mirage';
+import { AppRoutes } from '@infra/routes';
+import { makeServer } from '../infra/services/mirage';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 

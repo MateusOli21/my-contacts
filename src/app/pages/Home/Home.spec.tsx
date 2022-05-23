@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@app/tests/lib';
+
+import { render, screen } from '@tests/lib';
 
 import { HomePage } from '.';
 

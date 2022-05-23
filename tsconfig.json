@@ -15,15 +15,18 @@
     "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node", "@testing-library/cypress", "@testing-library/jest-dom", "cypress"],
+    "types": ["node", "@testing-library/cypress", "cypress"],
+    "rootDirs": ["src", "tests"],
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["app/*"],
       "@ui/*": ["ui/*"],
-      "@domains/*": ["domains/*"]
+      "@domains/*": ["domains/*"],
+      "@infra/*": ["infra/*"],
+      "@tests/*": ["../tests/*"]
     }
   },
-  "include": ["src", "cypress/integration/*.ts"],
+  "include": ["src", "tests"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

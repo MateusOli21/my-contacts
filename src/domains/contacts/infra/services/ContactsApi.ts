@@ -1,6 +1,6 @@
 import { AxiosInstance, AxiosResponse } from 'axios';
 
-import { fakeApi } from '@app/infra/services/apis/fakeApi';
+import { fakeApi } from '@infra/services/apis/fakeApi';
 import { IContact, ICreateContact } from '@domains/contacts/types';
 
 const BASE_URL = '/contacts';
