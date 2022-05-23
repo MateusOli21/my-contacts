@@ -6,6 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "npm run link -- --fix",
     "test": "jest",
     "test:ci": "jest --ci --maxWorkers=2",
     "test:watch": "jest --watchAll",
