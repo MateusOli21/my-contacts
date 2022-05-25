@@ -26,6 +26,12 @@ export function makeServer() {
       }),
     },
     seeds(mirageServer) {
+      mirageServer.create('contact', {
+        category: 'discord',
+        email: 'mateus@test.com',
+        name: 'Mateus Oliveira',
+        phone: '11999999999',
+      });
       mirageServer.createList('contact', 3);
     },
     routes() {
