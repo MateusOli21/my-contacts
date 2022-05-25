@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Input, Select } from '@ui/elements/forms';
+import { FormGroup, Input, Select } from '@ui/elements/forms';
 import { FilledButton } from '@ui/elements/buttons';
 import { contactsApi } from '@domains/contacts/infra/services';
 import { IContact, ICreateContact } from '@domains/contacts/types';
@@ -68,43 +68,52 @@ export const ContactForm: React.FC<ContactFormProps> = ({ contact, isEditContact
   }, [contact]);
 
   return (
-    <form onSubmit={onFormSubmit} className="w-full flex flex-col gap-2">
-      <Input
-        data-testid="inputName"
-        placeholder="Nome"
-        name="name"
-        inputRef={nameRef}
-        defaultValue={contact?.name}
-      />
+    <form onSubmit={onFormSubmit} className="w-full flex flex-col gap-5">
+      <FormGroup htmlFor="input-name" label="Nome:">
+        <Input
+          id="input-name"
+          placeholder="Nome"
+          name="name"
+          inputRef={nameRef}
+          defaultValue={contact?.name}
+        />
+      </FormGroup>
 
-      <Input
-        placeholder="E-mail"
-        data-testid="inputEmail"
-        name="email"
-        inputRef={emailRef}
-        defaultValue={contact?.email}
-      />
+      <FormGroup htmlFor="input-email" label="E-mail:">
+        <Input
+          id="input-email"
+          placeholder="E-mail"
+          name="email"
+          inputRef={emailRef}
+          defaultValue={contact?.email}
+        />
+      </FormGroup>
 
-      <Input
-        placeholder="Telefone"
-        data-testid="inputPhone"
-        name="phone"
-        value={phone}
-        onChange={onChangePhoneValue}
-      />
+      <FormGroup htmlFor="input-phone" label="Telefone:">
+        <Input
+          id="input-phone"
+          placeholder="Telefone"
+          name="phone"
+          value={phone}
+          onChange={onChangePhoneValue}
+        />
+      </FormGroup>
 
-      <Select
-        className="w-full"
-        name="category"
-        placeholder="Categoria do contato"
-        value={contact?.category}
-        onChange={event => setCategory(event.target.value)}>
-        {selectCategoryOptions.map(item => (
-          <option key={item} value={item} className="capitalize">
-            {item}
-          </option>
-        ))}
-      </Select>
+      <FormGroup htmlFor="select-category" label="Categoria:">
+        <Select
+          className="w-full"
+          id="select-category"
+          name="category"
+          placeholder="Categoria do contato"
+          value={contact?.category}
+          onChange={event => setCategory(event.target.value)}>
+          {selectCategoryOptions.map(item => (
+            <option key={item} value={item} className="capitalize">
+              {item}
+            </option>
+          ))}
+        </Select>
+      </FormGroup>
 
       <FilledButton type="submit" className="w-full mt-4 h-12">
         {isEditContact ? 'Salvar' : 'Cadastrar'}

@@ -1,0 +1,9 @@
+{
+  "video": false,
+  "trashAssetsBeforeRuns": true,
+  "baseUrl": "http://localhost:3000",
+  "supportFile": "tests/e2e/cypress/support/index.ts",
+  "pluginsFile": "tests/e2e/cypress/plugins/index.ts",
+  "integrationFolder": "tests/e2e/cypress/integration",
+  "fixturesFolder": "tests/e2e/cypress/fixtures"
+}

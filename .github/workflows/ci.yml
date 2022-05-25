@@ -1,0 +1,35 @@
+name: CI workflow
+
+on:
+  # push:
+  #   branches: [develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  jest-run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Jest run tests
+        run: npm run test:ci
+
+  cypress-run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run tests
+        uses: cypress-io/github-action@v2
+        with:
+          # build: npm run dev
+          start: npm run dev
+          wait-on: 'http://localhost:3000'
+          browser: chrome
+          headless: true

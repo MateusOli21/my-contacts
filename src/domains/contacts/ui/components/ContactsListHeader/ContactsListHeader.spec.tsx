@@ -1,4 +1,4 @@
-import { render } from '@app/tests/lib/render';
+import { render } from '@tests/lib';
 import { ContactsListHeader } from '.';
 
 describe('ContactsListHeader', () => {

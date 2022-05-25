@@ -1,23 +1,31 @@
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@app/tests/lib/render';
+
+import { render, within } from '@tests/lib';
+import { formatPhone } from '@domains/contacts/utils';
+
 import { ContactForm } from '.';
 
 describe('ContactForm Component', () => {
-  it('should submit format', async () => {
-    const { getByTestId, getByRole } = render(<ContactForm />);
+  it('should write phone number and format', async () => {
+    const { getByRole } = render(<ContactForm />);
 
-    const inputName = getByTestId('inputName');
-    const inputEmail = getByTestId('inputEmail');
-    const inputPhone = getByTestId('inputPhone');
+    const inputPhone = getByRole('textbox', { name: /Telefone:/i });
 
-    const submitButton = getByRole('button', { name: 'Cadastrar' });
+    await userEvent.type(inputPhone, '11999999999');
 
-    userEvent.type(inputName, 'Mateus');
-    userEvent.type(inputEmail, 'mateus@gmail.com');
-    userEvent.type(inputPhone, '11999999999');
+    expect(inputPhone).toHaveValue(formatPhone('11999999999'));
+  });
 
-    userEvent.click(submitButton);
+  it('should select a option and check if value is correct', async () => {
+    const { getByRole } = render(<ContactForm />);
 
-    expect(screen.queryByText('Cadastrar')).toBeTruthy();
+    const selectCategory = getByRole('combobox', { name: /Categoria:/i });
+
+    await userEvent.selectOptions(
+      selectCategory,
+      within(selectCategory).getByRole('option', { name: /discord/i })
+    );
+
+    expect(selectCategory).toHaveValue('discord');
   });
 });
