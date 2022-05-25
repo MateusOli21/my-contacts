@@ -8,7 +8,8 @@ export const Select: React.FC<SelectProps> = ({ children, className, ...props })
   return (
     <select
       className={`h-12 px-4 py-2 outline-none rounded-lg bg-white shadow-sm ${className}`}
-      {...props}>
+      {...props}
+    >
       {children}
     </select>
   );

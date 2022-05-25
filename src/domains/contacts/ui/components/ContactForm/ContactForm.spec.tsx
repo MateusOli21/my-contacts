@@ -6,7 +6,7 @@ import { formatPhone } from '@domains/contacts/utils';
 import { ContactForm } from '.';
 
 describe('ContactForm Component', () => {
-  it('should write phone number and format', async () => {
+  it('should write some phone number and format', async () => {
     const { getByRole } = render(<ContactForm />);
 
     const inputPhone = getByRole('textbox', { name: /Telefone:/i });

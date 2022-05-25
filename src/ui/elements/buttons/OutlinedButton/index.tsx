@@ -9,7 +9,8 @@ export const OutlinedButton: React.FC<OutlinedButtonProps> = ({ children, ...pro
   return (
     <button
       className="px-4 py-2 border border-primary text-primary font-semibold rounded"
-      {...props}>
+      {...props}
+    >
       {children}
     </button>
   );
