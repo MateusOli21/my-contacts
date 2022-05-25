@@ -8,10 +8,10 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:ci": "jest --ci --maxWorkers=2",
     "test:watch": "jest --watchAll",
-    "test:staged": "jest -- --passWithNoTests --findRelatedTests",
+    "test:staged": "npm test -- --findRelatedTests",
     "test:cypress": "cypress open",
     "test:cypress:run": "cypress run",
     "prepare": "husky install"

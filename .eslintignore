@@ -2,5 +2,5 @@ node_modules
 scripts
 .next
 
-/root/*.js
+*.js
 *.json

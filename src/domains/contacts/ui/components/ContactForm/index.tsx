@@ -106,7 +106,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ contact, isEditContact
           name="category"
           placeholder="Categoria do contato"
           value={contact?.category}
-          onChange={event => setCategory(event.target.value)}>
+          onChange={event => setCategory(event.target.value)}
+        >
           {selectCategoryOptions.map(item => (
             <option key={item} value={item} className="capitalize">
               {item}
